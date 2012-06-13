@@ -14,8 +14,8 @@ development:
   reconnect: false
   database: stack_overflow_development
   pool: 5
-  username: root
-  password:
+  username: stack_overflow
+  password: stack
   host: localhost
 
 # Warning: The database defined as "test" will be erased and

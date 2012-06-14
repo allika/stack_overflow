@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120613145723) do
+ActiveRecord::Schema.define(:version => 20120613152213) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :limit => 200
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(:version => 20120613145723) do
   end
 
   add_index "comments", ["theme_id", "user_id", "rating"], :name => "index_comments_on_theme_id_and_user_id_and_rating"
+
+  create_table "estimations", :force => true do |t|
+    t.integer  "comment_id"
+    t.integer  "user_id"
+    t.boolean  "plus",       :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "estimations", ["comment_id", "user_id"], :name => "index_estimations_on_comment_id_and_user_id"
 
   create_table "themes", :force => true do |t|
     t.integer  "category_id"

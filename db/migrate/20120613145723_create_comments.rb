@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer  :user_id
       t.text     :body
       t.integer  :rating,     :null => false, :default => 0
-      t.boolean  :top_level, :default => false
+      t.boolean  :top_level,  :default => false
       t.timestamps
     end
     add_index :comments, [:theme_id, :user_id, :rating]

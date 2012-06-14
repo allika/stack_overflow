@@ -1,0 +1,15 @@
+<div class="category index">
+<h1>Categories</h1>
+
+  <% @categories.each do |category| %>
+    <div class="category summary">
+      <div class="statistics">
+        <div class="themes"><span><%= category.themes.size %></span> <h3><%= link_to "Themes", category_path( category.id ), :category_id => category.id %></h3> </div>
+      </div>
+      <div class="data">
+        <h2> <%= link_to category.name, category_path( category.id ), :class => "show link" %> </h2>
+      </div>
+    </div>
+  <% end %>
+
+</div>

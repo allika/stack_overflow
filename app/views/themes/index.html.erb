@@ -1,0 +1,19 @@
+<%= link_to "All categories", categories_path %>
+
+<h1><%= @category.name %></h1>
+
+<div class="theme index">
+<h2>Themes</h2>
+
+  <% @themes.each do |theme| %>
+    <div class="theme summary">
+      <div class="statistics">
+        <div class="comments"><span><%= theme.comments.size %></span> <h3><%= link_to "Comments", theme_path( theme.id ) %></h3> </div>
+      </div>
+      <div class="data">
+        <h2> <%= link_to theme.name, theme_path( theme.id ), :class => "show link" %> </h2>
+      </div>
+    </div>
+  <% end %>
+
+</div>

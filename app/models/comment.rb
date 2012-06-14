@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
 
   belongs_to :theme
   belongs_to :user
-  has_many   :estimations, :dependent => destroy
+  has_many   :estimations, :dependent => :destroy
 
   validates :body, :presence => true
 end

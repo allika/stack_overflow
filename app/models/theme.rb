@@ -3,7 +3,7 @@ class Theme < ActiveRecord::Base
 
   belongs_to :category
   belongs_to :user
-  has_many   :comments, :dependent => destroy
+  has_many   :comments, :dependent => :destroy
 
   validates :name, :presence => true, :length => { :maximum => 200 }
 end

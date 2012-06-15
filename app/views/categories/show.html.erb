@@ -1,9 +1,11 @@
+<% @page_title = "Category #{@category.name}" %>
+
 <div class="category show">
 
-  <%= link_to "All Categories", categories_path, :class => "back_link" %>
+  <%= link_to "All Categories", categories_path, :class => "back-link" %>
 
   <h1>Category <%= @category.name %></h1>
 
-  <h3><%= link_to "Themes", themes_path( :category_id => @category.id ) %></h3>
+  <h3><%= link_to "Themes", themes_path( :category_id => @category.id ), :class => "ahead-link" %></h3>
 
 </div>

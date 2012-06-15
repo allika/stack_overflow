@@ -1,7 +1,12 @@
+<% @page_title = "Theme #{@theme.name}" %>
+
 <div class="theme show">
 
-  <%= link_to "All Themes", themes_path, :class => "back_link" %>
+  <%= link_to "Categories", categories_path, :class => "back-link" %>
+  <%= link_to "Themes", themes_path( :category_id => @theme.category_id ), :class => "back-link" %>
 
   <h1>Theme <%= @theme.name %></h1>
+
+  <h3><%= link_to "Comments", comments_path( :theme_id => @theme.id ), :class => "ahead-link" %></h3>
 
 </div>

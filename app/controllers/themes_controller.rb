@@ -4,7 +4,7 @@ class ThemesController < ApplicationController
   before_filter :find_user
 
   def index
-    @themes = Theme.where(:category_id => @category.id)
+    @themes = Theme.where(:category_id => @category.id).sort_by_top_comment_rating
   end
 
   def show

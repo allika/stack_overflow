@@ -6,13 +6,18 @@ class Theme < ActiveRecord::Base
   has_many   :comments, :dependent => :destroy
   validates_associated :comments
 
-  validates :name, :presence => true, :length => { :maximum => 200 }
+  validates :name, :presence => true, :length => { :maximum => 200 },
+            :uniqueness => { :scope => :category, :message => "category already contain this theme" }
+
+  def top_level_comment
+    self.comments.where(:top_level => 1).first
+  end
 
   def rating
-    self.comments.where(:top_level => 1).first.rating
+    self.top_level_comment.rating
   end
 
   def self.sort_by_top_comment_rating
-
+    Theme.joins(:comments).where('comments.top_level' => 1).order('comments.rating DESC')
   end
 end

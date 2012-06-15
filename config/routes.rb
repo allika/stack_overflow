@@ -1,11 +1,13 @@
 StackOverflow::Application.routes.draw do
 
-  get "comments/index"
-
-  resources :categories, :themes
+  resources :categories, :themes, :comments, :estimations
 
   resources :categories do
-    resources :themes
+    resources :themes do
+      resources :comments do
+        resources :estimations
+      end
+    end
   end
 
   # The priority is based upon order of creation:

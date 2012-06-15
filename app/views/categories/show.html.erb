@@ -4,4 +4,6 @@
 
   <h1>Category <%= @category.name %></h1>
 
+  <h3><%= link_to "Themes", themes_path( :category_id => @category.id ) %></h3>
+
 </div>

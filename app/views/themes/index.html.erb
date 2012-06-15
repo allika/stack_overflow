@@ -1,13 +1,14 @@
 <% @page_title = "Themes list" %>
 
-<%= link_to "All categories", categories_path %>
+<%= link_to "Categories", categories_path, :class => 'back-link' %>
+
+<h1>Category: <%= @category.name %></h1>
 
 <p><%= link_to "Create new theme", new_theme_path( :category_id => @category.id ), :class => "action new" %> </p>
 
 <div><%= pluralize @themes.size, 'theme' %> found</div>
 
 <div class="theme index">
-
   <% @themes.each do |theme| %>
     <div class="theme summary">
       <div class="statistics">
@@ -16,7 +17,7 @@
       </div>
 
       <div class="data">
-        <h2> <%= link_to theme.name, theme_path( theme.id ), :class => "show link" %> </h2>
+        <h2> <%= link_to theme.name, category_theme_comments_path( @category, theme ), :class => "ahead-link" %> </h2>
       </div>
     </div>
   <% end %>

@@ -1,0 +1,24 @@
+<% @page_title = "Comments list" %>
+
+<%= link_to "Categories", categories_path, :class => 'back-link' %>
+<%= link_to "Themes", themes_path( :theme_id => @theme.id, :category_id => @theme.category_id ), :class => 'back-link' %>
+
+<h1>Theme: <%= @theme.name %></h1>
+
+<p><%= link_to "Create new comment", new_comment_path( :theme_id => @theme.id ), :class => "action new" %> </p>
+
+<div><%= pluralize @comments.size, 'comment' %> found</div>
+
+<div class="comment index">
+  <% @comments.each do |comment| %>
+    <div class="comment summary">
+      <div class="statistics">
+        <div class="estimations"><%= pluralize comment.estimations.size, 'estimations' %></div>
+        <div class="rating"><p>rating <span><%= comment.rating %></span></p></div>
+      </div>
+      <div class="data">
+        <p><strong><%= comment.body %></strong></p>
+      </div>
+    </div>
+  <% end %>
+</div>

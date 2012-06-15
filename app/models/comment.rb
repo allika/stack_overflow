@@ -6,4 +6,6 @@ class Comment < ActiveRecord::Base
   has_many   :estimations, :dependent => :destroy
 
   validates :body, :presence => true
+
+  scope :sorted, order('rating DESC')
 end

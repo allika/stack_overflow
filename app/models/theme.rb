@@ -6,4 +6,12 @@ class Theme < ActiveRecord::Base
   has_many   :comments, :dependent => :destroy
 
   validates :name, :presence => true, :length => { :maximum => 200 }
+
+  def rating
+    self.comments.where(:top_level => 1).first.rating
+  end
+
+  def self.sort_by_top_comment_rating
+
+  end
 end

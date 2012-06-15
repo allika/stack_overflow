@@ -9,6 +9,8 @@ class Theme < ActiveRecord::Base
   validates :name, :presence => true, :length => { :maximum => 200 },
             :uniqueness => { :scope => :category, :message => "category already contain this theme" }
 
+  accepts_nested_attributes_for :comments#, :allow_destroy => true, :reject_if => proc { |attributes| attributes['body'].blank? }
+
   def top_level_comment
     self.comments.where(:top_level => 1).first
   end

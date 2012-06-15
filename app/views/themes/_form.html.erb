@@ -1,16 +1,33 @@
 <%= error_messages_for @theme %>
 
-<table id="create form">
-  <tr>
-    <th><%= f.label :category_id, 'Category id' %></th>
-    <td><%= f.text_field :category_id %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :user_id, 'User id' %></th>
-    <td><%= f.text_field :user_id %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :name %></th>
-    <td><%= f.text_field :name %></td>
-  </tr>
-</table>
+  <div id="create form">
+    <p class="hidden-field">
+      <%= f.label :category_id, 'Category id:' %>
+      <%= f.text_field :category_id %>
+    </p>
+
+    <p class="hidden-field">
+      <%= f.label :user_id, 'User id:' %>
+      <%= f.text_field :user_id %>
+    </p>
+
+    <p class="form-field">
+      <%= f.label :name, 'Theme issue:' %>
+      <%= f.text_field :name %>
+    </p>
+
+    <%= f.fields_for :comments do |nf| %>
+      <div>
+        <p class="form-field">
+          <%= nf.label :body, 'Initial comment:'  %>
+          <%= nf.text_area :body %>
+        </p>
+
+        <p class="form-field">
+          <%= nf.label :top_level, 'Top level comment:'  %>
+          <%= nf.check_box :top_level, :checked => true %>
+        </p>
+      </div>
+    <% end %>
+
+</div>

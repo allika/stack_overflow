@@ -1,7 +1,12 @@
 StackOverflow::Application.routes.draw do
 
-  resources :categories
-  resources :themes
+  get "comments/index"
+
+  resources :categories, :themes
+
+  resources :categories do
+    resources :themes
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

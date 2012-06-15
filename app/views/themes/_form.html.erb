@@ -1,0 +1,16 @@
+<%= error_messages_for @theme %>
+
+<table id="create form">
+  <tr>
+    <th><%= f.label :category_id, 'Category id' %></th>
+    <td><%= f.text_field :category_id %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :user_id, 'User id' %></th>
+    <td><%= f.text_field :user_id %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :name %></th>
+    <td><%= f.text_field :name %></td>
+  </tr>
+</table>

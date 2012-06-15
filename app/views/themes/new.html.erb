@@ -1,0 +1,17 @@
+<% @page_title = "Create Theme" %>
+
+<%= link_to "All themes", themes_path( :category_id => @category.id ), :class => 'back-link' %>
+
+<div class="theme new">
+  <h2>Create Theme</h2>
+
+  <%= form_for :theme, :url => themes_path, :html => {:method => :post} do |f| %>
+
+    <%= render :partial => 'form', :locals => {:f => f} %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Create Theme") %>
+    </div>
+  <% end %>
+
+</div>

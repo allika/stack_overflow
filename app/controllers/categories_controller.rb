@@ -5,7 +5,5 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @themes = @category.themes
-    render 'themes/index'
   end
 end

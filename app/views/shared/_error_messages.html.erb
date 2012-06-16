@@ -1,7 +1,6 @@
 <% if object && object.errors.size > 0 %>
   <div id="error-explanation">
-    <h2><%= pluralize(object.errors.size, "error") %> prohibited this record from being saved</h2>
-    <p>There were problems with the following fields:</p>
+    <h2><%= pluralize(object.errors.size, "error") %> has been found</h2>
     <ul>
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

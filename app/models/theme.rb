@@ -1,5 +1,5 @@
 class Theme < ActiveRecord::Base
-  attr_accessible :category_id, :user_id, :name, :created_at, :updated_at, :comments
+  attr_accessible :category_id, :user_id, :name, :created_at, :updated_at, :comments_attributes
 
   belongs_to :category
   belongs_to :user
@@ -7,9 +7,9 @@ class Theme < ActiveRecord::Base
   validates_associated :comments
 
   validates :name, :presence => true, :length => { :maximum => 200 },
-            :uniqueness => { :scope => :category, :message => "category already contain this theme" }
+            :uniqueness => { :scope => :category_id, :message => "category already contain this theme" }
 
-  accepts_nested_attributes_for :comments#, :allow_destroy => true, :reject_if => proc { |attributes| attributes['body'].blank? }
+  accepts_nested_attributes_for :comments
 
   def top_level_comment
     self.comments.where(:top_level => 1).first

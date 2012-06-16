@@ -16,7 +16,19 @@ class ThemesController < ApplicationController
   end
 
   def create
+    @theme = Theme.new(params[:theme])
+    if @theme.save
+      flash[:notice] = 'Theme has been created'
+      redirect_to :action => 'index', :category_id => @theme.category_id
+    else
+      render 'new'
+    end
+  end
 
+  def destroy
+    Theme.find(params[:id]).destroy
+    flash[:notice] = 'Theme has been destroyed'
+    redirect_to :action => 'index', :category_id => @category.id
   end
 
   private

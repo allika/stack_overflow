@@ -19,6 +19,10 @@
       <div class="data">
         <h2> <%= link_to theme.name, category_theme_comments_path( @category, theme ), :class => "ahead-link" %> </h2>
       </div>
+
+      <div class="actions">
+        <%= link_to "Delete", category_theme_path( @category, theme ), :method => :delete, :confirm => "Theme will be deleted.\n Are you sure?" %>
+      </div>
     </div>
   <% end %>
 </div>

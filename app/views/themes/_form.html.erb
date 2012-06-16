@@ -1,33 +1,21 @@
 <%= error_messages_for @theme %>
 
-  <div id="create form">
-    <p class="hidden-field">
-      <%= f.label :category_id, 'Category id:' %>
-      <%= f.text_field :category_id %>
-    </p>
+<div class="fieldset">
+  <p class="hidden-field">
+    <%= f.text_field :category_id, :hidden => 1 %>
+  </p>
 
-    <p class="hidden-field">
-      <%= f.label :user_id, 'User id:' %>
-      <%= f.text_field :user_id %>
-    </p>
+  <p class="hidden-field">
+    <%= f.text_field :user_id, :hidden => 1 %>
+  </p>
 
-    <p class="form-field">
-      <%= f.label :name, 'Theme issue:' %>
-      <%= f.text_field :name %>
-    </p>
+  <p class="field">
+    <%= f.label :name, 'Theme issue:' %>
+    <%= f.text_field :name %>
+  </p>
 
-    <%= f.fields_for :comments do |nf| %>
-      <div>
-        <p class="form-field">
-          <%= nf.label :body, 'Initial comment:'  %>
-          <%= nf.text_area :body %>
-        </p>
-
-        <p class="form-field">
-          <%= nf.label :top_level, 'Top level comment:'  %>
-          <%= nf.check_box :top_level, :checked => true %>
-        </p>
-      </div>
-    <% end %>
+  <%= f.fields_for :comments do |c_f| %>
+    <%= render :partial => 'form_nested', :locals => {:c_f => c_f} %>
+  <% end %>
 
 </div>

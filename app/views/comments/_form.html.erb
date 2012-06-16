@@ -1,0 +1,16 @@
+<%= error_messages_for @comment %>
+
+<div class="fieldset">
+  <p class="hidden-field">
+    <%= f.label :theme_id, 'Theme id:' %>
+    <%= f.text_field :theme_id %>
+  </p>
+  <p class="hidden-field">
+    <%= f.label :user_id, 'User id:' %>
+    <%= f.text_field :user_id %>
+  </p>
+  <p class="field">
+    <%= f.label :body, 'Comment:' %>
+    <%= f.text_area :body, :rows => 5, :cols => 40  %>
+  </p>
+</div>

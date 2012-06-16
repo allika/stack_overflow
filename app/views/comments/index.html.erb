@@ -19,6 +19,9 @@
       <div class="data">
         <p><strong><%= comment.body %></strong></p>
       </div>
+      <div class="actions">
+        <%= link_to "Delete", category_theme_comment_path( @theme.category_id, @theme, comment ), :method => :delete, :confirm => "Are you sure?" %>
+      </div>
     </div>
   <% end %>
 </div>

@@ -7,7 +7,7 @@ class Theme < ActiveRecord::Base
   validates_associated :comments
 
   validates :name, :presence => true, :length => { :maximum => 200 },
-            :uniqueness => { :scope => :category_id, :message => "category already contain this theme" }
+            :uniqueness => { :scope => :category_id, :message => "Category already contain this theme" }
 
   accepts_nested_attributes_for :comments
 

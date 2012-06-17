@@ -7,5 +7,6 @@ class Comment < ActiveRecord::Base
 
   validates :body, :presence => true
 
-  scope :sorted, order('rating DESC')
+  scope :sorted, order('top_level DESC, rating DESC')
+
 end

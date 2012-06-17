@@ -27,8 +27,8 @@ test:
   reconnect: false
   database: stack_overflow_test
   pool: 5
-  username: root
-  password:
+  username: stack_overflow
+  password: stack
   host: localhost
 
 production:

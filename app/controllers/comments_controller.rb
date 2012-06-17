@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     if @comment.save
       flash[:notice] = 'Comment has been created'
-      redirect_to comments_path( :theme_id => @comment.theme_id )
+      redirect_to :action => 'index', :theme_id => @comment.theme_id
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
   def destroy
     Comment.find(params[:id]).destroy
     flash[:notice] = 'Comment has been destroyed'
-    redirect_to comments_path( :theme_id => @theme.id )
+    redirect_to :action => 'index', :theme_id => @theme.id
   end
 
   private

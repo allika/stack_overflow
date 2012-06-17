@@ -21,6 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'bcrypt-ruby'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"

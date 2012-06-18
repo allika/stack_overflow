@@ -2,8 +2,6 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :username, :email, :password, :password_confirmation, :created_at, :updated_at
   has_secure_password
 
-  attr_accessor :password_digest
-
   has_many :themes
   has_many :comments
   has_many :estimations
@@ -11,6 +9,7 @@ class User < ActiveRecord::Base
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 
   before_save { |user| user.email = email.downcase }
+  before_save :create_remember_token
 
   validates :first_name, :presence => true, :length => { :maximum => 25 }
   validates :last_name, :presence => true, :length => { :maximum => 35 }
@@ -20,4 +19,9 @@ class User < ActiveRecord::Base
   validates :password, :presence => { :on => :create }, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end

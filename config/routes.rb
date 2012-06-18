@@ -2,7 +2,12 @@ StackOverflow::Application.routes.draw do
 
   resources :categories, :themes, :comments, :estimations, :users
 
-  match '/signup',  :to => 'users#new'
+  #we have no need to show or edit session
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   resources :categories do
     resources :themes do
@@ -12,6 +17,7 @@ StackOverflow::Application.routes.draw do
     end
   end
 
+  root to: 'categories#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -60,7 +66,7 @@ StackOverflow::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
+  # just remember to delete public/_index.html.
   # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"

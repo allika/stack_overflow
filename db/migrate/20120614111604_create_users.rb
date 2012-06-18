@@ -5,11 +5,13 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name, :limit => 35
       t.string :username, :limit => 35
       t.string :email, :null => false, :default => '', :limit => 60
-      t.string :hashed_password
-      t.string :salt, :limit => 40
+      t.string :password_digest
+      t.string :remember_token
       t.timestamps
     end
-    add_index(:users, :username)
+    add_index :users, :username
+    add_index :users, :email
+    add_index :users, :remember_token
   end
 
   def self.down

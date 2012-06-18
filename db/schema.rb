@@ -58,12 +58,14 @@ ActiveRecord::Schema.define(:version => 20120614112542) do
     t.string   "last_name",       :limit => 35
     t.string   "username",        :limit => 35
     t.string   "email",           :limit => 60, :default => "", :null => false
-    t.string   "hashed_password"
-    t.string   "salt",            :limit => 40
+    t.string   "password_digest"
+    t.string   "remember_token"
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
   add_index "users", ["username"], :name => "index_users_on_username"
 
 end

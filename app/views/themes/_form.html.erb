@@ -6,7 +6,7 @@
   </p>
 
   <p class="hidden-field">
-    <%= f.text_field :user_id, :hidden => 1 %>
+    <%= f.text_field :user_id, :value => current_user.id, :hidden => 1 %>
   </p>
 
   <p class="field">

@@ -1,6 +1,6 @@
 <div class="nested-fieldset">
   <p class="hidden-field">
-    <%= c_f.text_field :user_id, :hidden => 1 %>
+    <%= c_f.text_field :user_id, :value => current_user.id, :hidden => 1 %>
   </p>
   <p class="field">
     <%= c_f.label :body, 'Initial comment:' %>

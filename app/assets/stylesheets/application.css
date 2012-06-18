@@ -23,7 +23,7 @@ form .fieldset textarea{
 }
 
 
-#new_user .fieldset input{
+#new_user .fieldset input, .session form .fieldset input{
     width: 250px;
 }
 

@@ -2,14 +2,14 @@
 
 <%= link_to "Themes", themes_path( :category_id => @theme.category_id ), :class => 'back-link' %>
 
-<div class="theme create">
+<div class="theme new">
   <h2>Create Theme</h2>
 
   <%= form_for setup_theme(@theme), :url => themes_path, :html => {:method => :post} do |f| %>
     <%= render :partial => 'form', :locals => {:f => f} %>
 
     <div class="form-buttons">
-      <%= submit_tag "Create Theme" %>
+      <%= f.submit "Create Theme", class: "button create" %>
     </div>
   <% end %>
 </div>

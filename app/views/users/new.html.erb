@@ -2,12 +2,12 @@
 
 <h1>Sign up</h1>
 
-<div class="user create">
+<div class="user new">
   <%= form_for @user, :url => users_path, :html => {:method => :post}  do |f| %>
     <%= render :partial => 'form', :locals => {:f => f} %>
 
     <div class="form-buttons">
-      <%= f.submit "Create my account", class: "button create" %>
+      <%= f.submit "Create my account", :class => "button create" %>
     </div>
   <% end %>
 </div>

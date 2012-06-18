@@ -1,11 +1,12 @@
 <% @page_title = "Comments list" %>
 
-<%= link_to "Categories", categories_path, :class => 'back-link' %>
 <%= link_to "Themes", themes_path( :theme_id => @theme.id, :category_id => @theme.category_id ), :class => 'back-link' %>
 
 <h1>Theme: <%= @theme.name %></h1>
 
-<p><%= link_to "Create new comment", new_comment_path( :theme_id => @theme.id ), :class => "action new" %> </p>
+<% if signed_in? %>
+  <p><%= link_to "Add comment", new_comment_path( :theme_id => @theme.id ), :class => "action new" %> </p>
+<% end %>
 
 <div><%= pluralize @comments.size, 'comment' %> found</div>
 
@@ -18,10 +19,14 @@
       </div>
       <div class="data">
         <p><strong><%= comment.body %></strong></p>
+
       </div>
-      <div class="actions">
-        <%= link_to "Delete", category_theme_comment_path( @theme.category_id, @theme, comment ), :method => :delete, :confirm => "Are you sure?" %>
-      </div>
+
+      <% if signed_in? %>
+        <div class="actions">
+          <%= link_to "Delete", category_theme_comment_path( @theme.category_id, @theme, comment ), :method => :delete, :confirm => "Are you sure?" %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>

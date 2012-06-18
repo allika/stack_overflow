@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name, :limit => 35
       t.string :username, :limit => 35
       t.string :email, :null => false, :default => '', :limit => 60
-      t.string :hashed_password, :limit => 40
+      t.string :hashed_password
       t.string :salt, :limit => 40
       t.timestamps
     end

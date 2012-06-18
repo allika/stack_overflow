@@ -1,6 +1,8 @@
 StackOverflow::Application.routes.draw do
 
-  resources :categories, :themes, :comments, :estimations
+  resources :categories, :themes, :comments, :estimations, :users
+
+  match '/signup',  :to => 'users#new'
 
   resources :categories do
     resources :themes do

@@ -22,6 +22,11 @@ form .fieldset textarea{
     width: 350px;
 }
 
+
+#new_user .fieldset input{
+    width: 250px;
+}
+
 /* Errors */
 .field_with_errors { }
 .field_with_errors label { color: #AA0000; }

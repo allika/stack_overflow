@@ -11,17 +11,36 @@
  *= require_self
 */
 
+#logo{
+    display: block;
+    float: left;
+}
+
+.navigation{
+    margin: 0 0 0 150px;
+    float: left;
+}
+
+.navigation li{
+    list-style: none;
+    display: block;
+    float: left;
+    padding-right: 10px;
+}
+
+.content{
+    margin-top: 30px;
+}
+
 form .fieldset label{
     display: block;
     float: left;
     width: 150px;
 }
 
-form .fieldset input,
-form .fieldset textarea{
+form .fieldset input,form .fieldset textarea{
     width: 350px;
 }
-
 
 #new_user .fieldset input, .session form .fieldset input{
     width: 250px;
@@ -39,3 +58,18 @@ form .fieldset textarea{
 #error-explanation p { color: #333333; margin: 0; padding: 3px 0.5em; }
 #error-explanation ul { margin-top: 10px; padding-left: 15px; }
 #error-explanation ul li { list-style: none; }
+
+.clear{
+    border: 0 none;
+    clear: both;
+    display: block;
+    float: none;
+    font-size: 0;
+    height: 0;
+    list-style: none outside none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    visibility: hidden;
+    width: 0;
+}

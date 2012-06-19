@@ -33,7 +33,7 @@
 
       <% if signed_in? %>
         <div class="actions">
-          <%= link_to "Delete", category_theme_comment_path( @theme.category_id, @theme, comment.id ), :method => :delete, :confirm => "Are you sure?" %>
+          <%= link_to "Delete", category_theme_comment_path(@theme.category_id, @theme, comment.id), :method => :delete, :confirm => "Are you sure?" %>
         </div>
       <% end %>
     </div>

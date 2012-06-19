@@ -3,7 +3,7 @@
 <h1>Category: <%= @category.name %></h1>
 
 <% if signed_in? %>
-  <p><%= link_to "Create new theme", new_theme_path( :category_id => @category.id ), :class => "action new" %> </p>
+  <p><%= link_to "Create new theme", new_theme_path(:category_id => @category.id), :class => "action new" %> </p>
 <% end %>
 
 <div class="top-statistics">Inside this category <%= pluralize @themes.size, 'theme' %> has been found.</div>
@@ -17,12 +17,12 @@
       </div>
 
       <div class="data">
-        <h2> <%= link_to theme.name, category_theme_comments_path( @category, theme ), :class => "ahead-link" %> </h2>
+        <h2> <%= link_to theme.name, category_theme_comments_path(@category, theme), :class => "ahead-link" %> </h2>
       </div>
 
       <% if signed_in? %>
         <div class="actions">
-          <%= link_to "Delete", category_theme_path( @category, theme ), :method => :delete, :confirm => "Theme will be deleted.\n Are you sure?" %>
+          <%= link_to "Delete", category_theme_path(@category, theme), :method => :delete, :confirm => "Theme will be deleted.\n Are you sure?" %>
         </div>
       <% end %>
     </div>

@@ -4,7 +4,7 @@
 
 <h1>Theme: <%= @theme.name %></h1>
 
-<% if signed_in? %>
+<% if signed_in? && @theme.not_commented_by_user(current_user.id) %>
   <p><%= link_to "Add comment", new_comment_path( :theme_id => @theme.id ), :class => "action new" %> </p>
 <% end %>
 
@@ -19,12 +19,21 @@
       </div>
       <div class="data">
         <p><strong><%= comment.body %></strong></p>
-
+        <% if signed_in? %>
+          <% if comment.estimations.find_by_user_id(current_user.id).nil? %>
+            <div class="estimation create">
+              <%= render :partial => 'estimations/form_wrap', :locals => {:comment_id => comment.id, :plus => true} %>
+              <%= render :partial => 'estimations/form_wrap', :locals => {:comment_id => comment.id, :plus => false} %>
+            </div>
+          <% else %>
+            <p class="estimation-report">Your vote is <span><%= current_user.estimations.find_by_comment_id(comment.id) ? "+1" : "-1" %></span></p>
+          <% end %>
+        <% end %>
       </div>
 
       <% if signed_in? %>
         <div class="actions">
-          <%= link_to "Delete", category_theme_comment_path( @theme.category_id, @theme, comment ), :method => :delete, :confirm => "Are you sure?" %>
+          <%= link_to "Delete", category_theme_comment_path( @theme.category_id, @theme, comment.id ), :method => :delete, :confirm => "Are you sure?" %>
         </div>
       <% end %>
     </div>

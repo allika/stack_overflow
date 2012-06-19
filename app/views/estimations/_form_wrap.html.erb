@@ -1,0 +1,7 @@
+<%= form_for :estimation, :url => estimations_path, :html => {:method => :post} do |f| %>
+  <%= render :partial => 'estimations/form', :locals => {:f => f, :comment_id => comment_id, :plus => plus} %>
+
+  <div class="form-buttons">
+    <%= f.submit "#{plus ? 'rating +1' : 'rating -1'}" %>
+  </div>
+<% end %>

@@ -12,7 +12,7 @@ class Theme < ActiveRecord::Base
   accepts_nested_attributes_for :comments
 
   def not_commented_by_user(user_id)
-    Comment.where(:theme_id => self.id, :user_id => user_id).nil?
+    Comment.where(:theme_id => self.id, :user_id => user_id).first.nil?
   end
 
   def top_level_comment

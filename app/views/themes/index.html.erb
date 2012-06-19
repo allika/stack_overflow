@@ -6,11 +6,11 @@
   <p><%= link_to "Create new theme", new_theme_path( :category_id => @category.id ), :class => "action new" %> </p>
 <% end %>
 
-<div><%= pluralize @themes.size, 'theme' %> found</div>
+<div class="top-statistics">Inside this category <%= pluralize @themes.size, 'theme' %> has been found.</div>
 
 <div class="theme index">
   <% @themes.each do |theme| %>
-    <div class="theme summary">
+    <div class="theme summary <%= cycle('odd', 'even') %>">
       <div class="statistics">
         <div class="comments"><%= pluralize theme.comments.size, 'comments' %></div>
         <div class="rating"><p>top comment rating <span><%= theme.rating %></span></p></div>
@@ -26,5 +26,6 @@
         </div>
       <% end %>
     </div>
+    <div class="clear"></div>
   <% end %>
 </div>

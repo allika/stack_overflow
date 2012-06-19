@@ -16,8 +16,20 @@
     float: left;
 }
 
+p, h1, h2, h3, h4{
+    margin-top: 0;
+}
+
+.notice{
+    width: 50%;
+    border:  1px solid #66aa44;
+    color: #66aa44;
+    margin-bottom: 20px;
+    padding: 0 0 0 15px;
+}
+
 .navigation{
-    margin: 0 0 0 150px;
+    margin: 0 0 0 275px;
     float: left;
 }
 
@@ -28,8 +40,41 @@
     padding-right: 10px;
 }
 
+.top-statistics {
+    margin-bottom: 20px;
+}
+
+.statistics, .data, .actions{
+    padding-left: 10px;
+}
+
+.statistics, .data, .actions{
+    float: left;
+}
+
 .content{
     margin-top: 30px;
+}
+
+.summary{
+    width: 50%;
+    border-top:  1px solid #eee;
+}
+
+.odd{
+    background-color: #eee;
+}
+
+.statistics{
+    width: 15%;
+}
+
+.data{
+    width: 55%;
+}
+
+.actions{
+    width: 10%;
 }
 
 form .fieldset label{
@@ -44,6 +89,15 @@ form .fieldset input,form .fieldset textarea{
 
 #new_user .fieldset input, .session form .fieldset input{
     width: 250px;
+}
+
+.estimation{
+    float: right;
+}
+
+.estimation form, .estimation-report{
+    width: auto;
+    float: left;
 }
 
 /* Errors */
@@ -66,7 +120,6 @@ form .fieldset input,form .fieldset textarea{
     float: none;
     font-size: 0;
     height: 0;
-    list-style: none outside none;
     margin: 0;
     overflow: hidden;
     padding: 0;

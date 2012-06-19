@@ -8,11 +8,11 @@
   <p><%= link_to "Add comment", new_comment_path( :theme_id => @theme.id ), :class => "action new" %> </p>
 <% end %>
 
-<div><%= pluralize @comments.size, 'comment' %> found</div>
+<div class="top-statistics">Inside this theme <%= pluralize @comments.size, 'comment' %> has been found.</div>
 
 <div class="comment index">
   <% @comments.each do |comment| %>
-    <div class="comment summary">
+    <div class="comment summary <%= cycle('odd', 'even') %>">
       <div class="statistics">
         <div class="estimations"><%= pluralize comment.estimations.size, 'estimations' %></div>
         <div class="rating"><p>rating <span><%= comment.rating %></span></p></div>
@@ -26,7 +26,7 @@
               <%= render :partial => 'estimations/form_wrap', :locals => {:comment_id => comment.id, :plus => false} %>
             </div>
           <% else %>
-            <p class="estimation-report">Your vote is <span><%= current_user.estimations.find_by_comment_id(comment.id) ? "+1" : "-1" %></span></p>
+            <p class="estimation-report">Your vote is <span><%= current_user.estimations.find_by_comment_id(comment.id).plus ? "+1" : "-1" %></span></p>
           <% end %>
         <% end %>
       </div>
@@ -37,5 +37,6 @@
         </div>
       <% end %>
     </div>
+  <div class="clear"></div>
   <% end %>
 </div>

@@ -5,6 +5,8 @@ class EstimationsController < ApplicationController
   def create
     @estimation = Estimation.new(params[:estimation])
     if @estimation.save
+      @current_comment_rating = @comment.rating + ( @estimation.plus ? 1 : -1 )
+      @comment.update_attributes!(:rating => @current_comment_rating)
       redirect_to comments_path(:theme_id => @comment.theme_id)
     else
       flash[:error] = "Something goes wrong!"

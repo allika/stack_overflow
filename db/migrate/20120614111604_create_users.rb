@@ -9,9 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :remember_token
       t.timestamps
     end
-    add_index :users, :username
-    add_index :users, :email
-    add_index :users, :remember_token
+    add_index :users, [:username, :email, :remember_token]
   end
 
   def self.down

@@ -4,7 +4,7 @@ class CreateCategories < ActiveRecord::Migration
       t.string :name, :limit => 200
       t.timestamps
     end
-    add_index(:categories, :name)
+    add_index :categories, :name
   end
 
   def self.down

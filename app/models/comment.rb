@@ -9,4 +9,9 @@ class Comment < ActiveRecord::Base
 
   scope :sorted, order('top_level DESC, rating DESC')
 
+  def rating
+    self.rating =
+    self.estimations.where(:plus => 1).size -
+    self.estimations.where(:plus => 0).size
+  end
 end

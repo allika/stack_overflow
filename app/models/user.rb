@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :themes
   has_many :comments
   has_many :estimations
+  has_many :tags
 
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 

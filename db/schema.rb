@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614112542) do
+ActiveRecord::Schema.define(:version => 20120620133900) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :limit => 200
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(:version => 20120614112542) do
   end
 
   add_index "estimations", ["comment_id", "user_id"], :name => "index_estimations_on_comment_id_and_user_id"
+
+  create_table "tag_attachings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "comment_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tag_attachings", ["tag_id", "comment_id"], :name => "index_tag_attachings_on_tag_id_and_comment_id"
 
   create_table "themes", :force => true do |t|
     t.integer  "category_id"

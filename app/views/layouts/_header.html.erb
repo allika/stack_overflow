@@ -3,6 +3,7 @@
     <%= link_to "Stack Overflow", root_path, id: "logo" %>
       <ul class="navigation">
         <li><%= link_to "Categories", root_path %></li>
+        <li><%= link_to "Tags", tags_path %></li>
         <% if signed_in? %>
           <li><%= link_to "Profile", current_user %></li>
           <li><%= link_to "Sign out", signout_path, method: "delete" %></li>

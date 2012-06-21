@@ -1,0 +1,2 @@
+class TagAttachingsController < ApplicationController
+end

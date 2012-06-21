@@ -1,6 +1,6 @@
 StackOverflow::Application.routes.draw do
 
-  resources :categories, :themes, :comments, :estimations, :users
+  resources :categories, :themes, :comments, :estimations, :users, :tags, :tag_attachings
 
   #we have no need to show or edit session
   resources :sessions, only: [:new, :create, :destroy]
@@ -15,6 +15,18 @@ StackOverflow::Application.routes.draw do
         resources :estimations
       end
     end
+  end
+
+  resources :users do
+      resources :tags
+  end
+
+  resources :comments do
+    resources :tags
+  end
+
+  resources :tags do
+    resources :comments
   end
 
   root to: 'categories#index'

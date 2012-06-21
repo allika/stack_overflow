@@ -1,0 +1,26 @@
+<% @page_title = "Tagged Comments list" %>
+
+<h1>Tag: <%= @tag.name %></h1>
+
+<div class="top-statistics">For this tag <%= pluralize @tag.comments.size, 'comment' %> has been found.</div>
+
+<div class="comment index">
+  <% @comments.each do |comment| %>
+    <div class="comment summary <%= cycle('odd', 'even') %>">
+      <div class="statistics">
+        <div class="estimations"><%= pluralize comment.estimations.size, 'estimations' %></div>
+        <div class="rating"><p>rating <span><%= comment.rating %></span></p></div>
+      </div>
+      <div class="data">
+        <h3><%= Theme.find_by_id(comment.theme_id).name %></h3>
+        <p><strong><%= comment.body %></strong></p>
+        <ul class="tags">
+          <% comment.tags.each do |tag| %>
+            <li><%= link_to tag.name, tag_comments_path( tag.id ) %><span class="popularity"> x <%= tag.popularity %></span></li>
+          <% end %>
+          </ul>
+      </div>
+    </div>
+  <div class="clear"></div>
+  <% end %>
+</div>

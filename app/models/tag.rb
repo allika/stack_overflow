@@ -5,7 +5,7 @@ class Tag < ActiveRecord::Base
   has_many   :tag_attachings
   has_many   :comments, :through => :tag_attachings
 
-  TAG_REGEX = /^[a-z0-9+#-.]$/i
+  TAG_REGEX = /^[A-Z0-9+#-.]+$/i
 
   before_save { |tag| tag.name = name.downcase }
 

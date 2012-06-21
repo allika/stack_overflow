@@ -100,6 +100,16 @@ form .fieldset input,form .fieldset textarea{
     float: left;
 }
 
+ul.tags{
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+ul.tags li{
+    list-style: none;
+    display: inline-block;
+}
+
 /* Errors */
 .field_with_errors { }
 .field_with_errors label { color: #AA0000; }

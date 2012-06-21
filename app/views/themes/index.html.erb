@@ -18,6 +18,16 @@
 
       <div class="data">
         <h2> <%= link_to theme.name, category_theme_comments_path(@category, theme), :class => "ahead-link" %> </h2>
+        <p><%= theme.top_level_comment.body %></p>
+        <% if theme.top_level_comment.tags.size > 0 %>
+          <ul class="tags">
+          <% theme.top_level_comment.tags.each do |tag| %>
+            <li><%= link_to tag.name, tag_comments_path( tag.id ) %><span class="popularity"> x <%= tag.popularity %></span></li>
+          <% end %>
+          </ul>
+        <% else %>
+            <p>Not contain tags yet</p>
+        <% end %>
       </div>
 
       <% if signed_in? %>

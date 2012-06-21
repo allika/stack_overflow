@@ -46,11 +46,23 @@ ActiveRecord::Schema.define(:version => 20120620133900) do
   create_table "tag_attachings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "comment_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "tag_attachings", ["tag_id", "comment_id"], :name => "index_tag_attachings_on_tag_id_and_comment_id"
+  add_index "tag_attachings", ["tag_id", "comment_id", "user_id"], :name => "index_tag_attachings_on_tag_id_and_comment_id_and_user_id"
+
+  create_table "tags", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name",        :default => "", :null => false
+    t.text     "description"
+    t.integer  "usage",       :default => 0,  :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "tags", ["user_id", "name", "usage"], :name => "index_tags_on_user_id_and_name_and_usage"
 
   create_table "themes", :force => true do |t|
     t.integer  "category_id"

@@ -3,7 +3,7 @@ class CreateTags < ActiveRecord::Migration
     create_table :tags do |t|
       t.integer       :user_id
       t.string        :name,         :null => false, :default => ""
-      t.text          :description,  :null => false, :default => "", :limit => 250
+      t.text          :description
       t.integer       :usage,        :null => false, :default => 0
       t.timestamps
     end

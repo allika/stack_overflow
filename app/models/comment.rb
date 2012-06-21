@@ -10,4 +10,8 @@ class Comment < ActiveRecord::Base
   validates :body, :presence => true
 
   scope :sorted, order('top_level DESC, rating DESC')
+
+  def self.tagged(tag_id)
+    Comment.where(:top_level => 1).joins(:tag_attachings).where('tag_attachings.tag_id' => tag_id)
+  end
 end

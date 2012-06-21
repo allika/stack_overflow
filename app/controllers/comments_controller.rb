@@ -4,9 +4,15 @@ class CommentsController < ApplicationController
 
   before_filter :find_theme
   before_filter :find_user
+  before_filter :find_tag
 
   def index
-    @comments = Comment.sorted.where(:theme_id => @theme.id)
+    if @theme
+      @comments = Comment.sorted.where(:theme_id => @theme.id)
+    elsif @tag
+      @comments = Comment.tagged(@tag.id)
+      render 'tagged'
+    end
   end
 
   def show
@@ -44,6 +50,12 @@ class CommentsController < ApplicationController
   def find_user
     if params[:user_id]
       @user = User.find_by_id(params[:user_id])
+    end
+  end
+
+  def find_tag
+    if params[:tag_id]
+      @tag = Tag.find_by_id(params[:tag_id])
     end
   end
 end

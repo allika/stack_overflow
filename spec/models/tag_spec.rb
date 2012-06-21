@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Tag do
 
-  before { @tag = Tag.new(:user_id => 5, :name => "tag-name#.", :description => "Tag's description'", :usage => 15,
+  before { @tag = Tag.new(:user_id => 5, :name => "tag-name#.", :description => "Tag's description'", :popularity => 15,
                           :created_at => "2012-06-17 16:19:04", :updated_at => "2012-06-17 16:19:04") }
 
   subject { @tag }
@@ -10,7 +10,7 @@ describe Tag do
   it { should respond_to(:user_id) }
   it { should respond_to(:name) }
   it { should respond_to(:description) }
-  it { should respond_to(:usage) }
+  it { should respond_to(:popularity) }
   it { should respond_to(:created_at) }
   it { should respond_to(:updated_at) }
 

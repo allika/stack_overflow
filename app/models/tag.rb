@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
-  attr_accessible :user_id, :name, :description, :usage, :created_at, :updated_at
+  attr_accessible :user_id, :name, :description, :popularity, :created_at, :updated_at
 
   belongs_to :user
   has_many   :tag_attachings
@@ -11,4 +11,6 @@ class Tag < ActiveRecord::Base
 
   validates :name, :presence => true, :length => { :within => 2..25 }, :format => { :with => TAG_REGEX }, :uniqueness => true
   validates :description, :presence => true, :length => { :within => 15..300}
+
+  scope :sorted, order('popularity DESC')
 end

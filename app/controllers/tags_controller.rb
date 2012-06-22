@@ -20,8 +20,7 @@ class TagsController < ApplicationController
         end
       redirect_to category_themes_path(:category_id => @theme.category_id)
     else
-     flash[:notice] = "Something goes wrong... Tag wasn't created"
-     redirect_to category_themes_path(:category_id => @theme.category_id)
+     render 'new'
     end
   end
 

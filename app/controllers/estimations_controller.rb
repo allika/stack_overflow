@@ -7,9 +7,10 @@ class EstimationsController < ApplicationController
     if @estimation.save
       @current_comment_rating = @comment.rating + ( @estimation.plus ? 1 : -1 )
       @comment.update_attributes!(:rating => @current_comment_rating)
+      flash[:notice] = "Thanks for your vote!"
       redirect_to comments_path(:theme_id => @comment.theme_id)
     else
-      flash[:error] = "Something goes wrong!"
+      flash[:error] = "Something goes wrong... Your vote wasn't taken into account.'"
       redirect_to comments_path(:theme_id => @comment.theme_id)
     end
   end

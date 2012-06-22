@@ -1,7 +1,7 @@
 <div class="tag_attaching create">
   <p>Attach a Tag:&nbsp;</p>
 
-  <%= form_for :tag_attaching, :url => tag_attachings_path, :html => {:method => :post}, :remote => true do |f| %>
+  <%= form_for :tag_attaching, :url => tag_attachings_path, :html => {:method => :post} do |f| %>
     <%= render :partial => 'tag_attachings/form', :locals => {:f => f, :comment_id => comment_id} %>
 
     <div class="form-buttons">
@@ -9,3 +9,4 @@
     </div>
   <% end %>
 </div>
+<div class="clear"></div>

@@ -34,6 +34,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    TagAttaching.find_by_comment_id(params[:id]).destroy
     Comment.find(params[:id]).destroy
     flash[:notice] = 'Comment has been destroyed'
     redirect_to :action => 'index', :theme_id => @theme.id

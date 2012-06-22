@@ -83,12 +83,16 @@ form .fieldset label{
     width: 150px;
 }
 
-form .fieldset input,form .fieldset textarea{
+form .fieldset input, form .fieldset textarea{
     width: 350px;
 }
 
-#new_user .fieldset input, .session form .fieldset input{
+#new_user .fieldset input, .session form .fieldset input, #new_tag input#tag_name{
     width: 250px;
+}
+
+#new_tag #attached{
+    width: auto;
 }
 
 .estimation{

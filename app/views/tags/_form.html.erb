@@ -1,0 +1,22 @@
+<%= error_messages_for @tag %>
+
+<div class="fieldset">
+  <p class="field">
+    <%= f.label :name, 'Name:' %>
+    <%= f.text_field :name %>
+  </p>
+  <p class="field">
+    <%= f.label :description, 'Description:' %>
+    <%= f.text_area :description, :rows => 5, :cols => 40  %>
+  </p>
+  <p class="hidden-field">
+    <%= f.text_field :user_id, :value => current_user.id, :hidden => 1 %>
+  </p>
+   <p class="hidden-field">
+    <%= f.text_field :popularity, :value => 0, :hidden => 1 %>
+  </p>
+  <p class="field">
+    <%= label :attach, 'Attach to Comment:', :class => "attach_check_box" %>
+    <%= check_box_tag 'attached', 'yes', true %>
+  </p>
+</div>

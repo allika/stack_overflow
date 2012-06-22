@@ -1,0 +1,18 @@
+<% @page_title = "Create Tag" %>
+
+<h1> Theme name: <%= @theme.name %> </h1>
+<%= link_to "Back to the Theme view", category_themes_path(:category_id => @theme.category_id), :class => 'back-link' %>
+
+<h2> Comment content:</h2>
+<p><%= @comment.body %></p>
+
+<div class="tag new">
+  <h2>Create Tag</h2>
+  <%= form_for @tag, :url => comment_tags_path(:comment_id => @comment.id), :html => {:method => :post} do |f| %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+
+    <div class="form-buttons">
+      <%= f.submit "Create Tag", :class => "button create" %>
+    </div>
+  <% end %>
+</div>

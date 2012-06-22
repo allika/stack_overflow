@@ -22,7 +22,11 @@
         <% if theme.top_level_comment.tags.size > 0 %>
           <ul class="tags">
           <% theme.top_level_comment.tags.each do |tag| %>
-            <li><%= link_to tag.name, tag_comments_path( tag.id ) %><span class="popularity"> x <%= tag.popularity %></span></li>
+            <li><%= link_to tag.name, tag_comments_path( tag.id ) %><span class="popularity"> x <%= tag.popularity %></span>
+                <% if signed_in? && theme.top_level_comment.user_id == current_user.id  %>
+                  <% @tag_attaching = TagAttaching.where(:tag_id => tag.id, :comment_id => theme.top_level_comment.id).first %>
+                <% end %>
+            </li>
           <% end %>
           </ul>
         <% else %>
@@ -35,6 +39,7 @@
           <%= link_to "Delete", category_theme_path(@category, theme), :method => :delete, :confirm => "Theme will be deleted.\n Are you sure?" %>
             <% if theme.top_level_comment.user_id == current_user.id %>
               <%= render :partial => 'tag_attachings/form_wrap', :locals => { :comment_id => theme.top_level_comment.id } %>
+              <%= link_to "Add a Tag", new_comment_tag_path( :comment_id => theme.top_level_comment.id ), :class => "action new" %>
             <% end %>
         </div>
       <% end %>

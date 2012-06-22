@@ -10,7 +10,7 @@ class Tag < ActiveRecord::Base
   before_save { |tag| tag.name = name.downcase }
 
   validates :name, :presence => true, :length => { :within => 2..25 }, :format => { :with => TAG_REGEX }, :uniqueness => true
-  validates :description, :presence => true, :length => { :within => 15..300}
+  validates :description, :presence => true, :length => {:within => 15..300}
 
   scope :sorted, order('popularity DESC')
 end

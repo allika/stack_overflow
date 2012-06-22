@@ -5,6 +5,7 @@ class ThemesController < ApplicationController
 
   def index
     @themes = Theme.where(:category_id => @category.id).sort_by_top_comment_rating
+    @tags = Tag.order('name DESC')
   end
 
   def show

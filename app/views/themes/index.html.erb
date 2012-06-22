@@ -26,13 +26,16 @@
           <% end %>
           </ul>
         <% else %>
-            <p>Not contain tags yet</p>
+          <p>Not contain tags yet</p>
         <% end %>
       </div>
 
       <% if signed_in? %>
         <div class="actions">
           <%= link_to "Delete", category_theme_path(@category, theme), :method => :delete, :confirm => "Theme will be deleted.\n Are you sure?" %>
+            <% if theme.top_level_comment.user_id == current_user.id %>
+              <%= render :partial => 'tag_attachings/form_wrap', :locals => { :comment_id => theme.top_level_comment.id } %>
+            <% end %>
         </div>
       <% end %>
     </div>

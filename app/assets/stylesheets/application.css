@@ -57,7 +57,7 @@ p, h1, h2, h3, h4{
 }
 
 .summary{
-    width: 50%;
+    width: 70%;
     border-top:  1px solid #eee;
 }
 
@@ -66,7 +66,7 @@ p, h1, h2, h3, h4{
 }
 
 .statistics{
-    width: 15%;
+    width: 10%;
 }
 
 .data{
@@ -74,7 +74,7 @@ p, h1, h2, h3, h4{
 }
 
 .actions{
-    width: 10%;
+    width: 30%;
 }
 
 form .fieldset label{
@@ -108,6 +108,18 @@ ul.tags{
 ul.tags li{
     list-style: none;
     display: inline-block;
+}
+
+.tag_attaching p{
+    margin: 0 2px 3px 0;
+    display: block;
+    width: auto;
+    float: left;
+}
+
+.tag_attaching form, .tag_attaching .form-buttons, .tag_attaching .fieldset{
+    display: inline-block;
+    float: left;
 }
 
 /* Errors */

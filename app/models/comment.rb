@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :theme
   belongs_to :user
   has_many   :estimations, :dependent => :destroy
-  has_many   :tag_attachings
+  has_many   :tag_attachings, :dependent => :destroy
   has_many   :tags, :through => :tag_attachings
 
   validates :body, :presence => true

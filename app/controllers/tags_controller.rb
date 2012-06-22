@@ -25,7 +25,6 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    TagAttaching.find_by_tag_id(params[:id]).destroy
     Tag.find(params[:id]).destroy
     flash[:notice] = 'Tag has been destroyed'
     redirect_to :action => 'index'

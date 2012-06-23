@@ -1,7 +1,7 @@
 <% @page_title = "Create Tag" %>
 
-<h1> Theme name: <%= @theme.name %> </h1>
-<%= link_to "Back to the Theme view", category_themes_path(:category_id => @theme.category_id), :class => 'back-link' %>
+<h1> Theme issue: <%= @theme.name %> </h1>
+<%= link_to "<< Theme", category_themes_path(:category_id => @theme.category_id), :class => 'back-link' %>
 
 <h2> Comment content:</h2>
 <p><%= @comment.body %></p>

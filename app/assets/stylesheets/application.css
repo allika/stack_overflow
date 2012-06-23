@@ -11,6 +11,10 @@
  *= require_self
 */
 
+.main{
+    width: 70%;
+}
+
 #logo{
     display: block;
     float: left;
@@ -20,8 +24,16 @@ p, h1, h2, h3, h4{
     margin-top: 0;
 }
 
+a{
+    text-decoration: none;
+}
+
+.back-link{
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
 .notice{
-    width: 50%;
     border:  1px solid #66aa44;
     color: #66aa44;
     margin-bottom: 20px;
@@ -29,8 +41,11 @@ p, h1, h2, h3, h4{
 }
 
 .navigation{
-    margin: 0 0 0 275px;
-    float: left;
+    float: right;
+}
+
+.navigation ul{
+    margin-top: 0;
 }
 
 .navigation li{
@@ -57,7 +72,6 @@ p, h1, h2, h3, h4{
 }
 
 .summary{
-    width: 70%;
     border-top:  1px solid #eee;
 }
 

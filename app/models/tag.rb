@@ -18,4 +18,13 @@ class Tag < ActiveRecord::Base
     popularity = self.popularity + value
     self.update_attributes!(:popularity => popularity)
   end
+
+  def self.not_attached_to_comment(comment_id)
+    @used_tags_ids = Comment.find_by_id(comment_id).tags.collect{|tag| tag.id }
+    @tags_available = []
+    Tag.all.each do |tag|
+      @tags_available << tag unless @used_tags_ids.include? tag.id
+    end
+    @tags_available
+  end
 end

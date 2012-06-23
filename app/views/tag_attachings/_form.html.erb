@@ -1,6 +1,8 @@
+<% @tags_available = Tag.not_attached_to_comment(comment_id) %>
+
 <div class="fieldset">
   <p class="field">
-    <%= f.select :tag_id, @tags.collect {|tag| [tag.name, tag.id]} %>
+    <%= f.select :tag_id, @tags_available.collect {|tag| [tag.name, tag.id]} %>
   </p>
   <p class="hidden-field">
     <%= f.text_field :comment_id, :value => comment_id, :hidden => 1 %>

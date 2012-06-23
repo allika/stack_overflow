@@ -25,6 +25,8 @@
             <li><%= link_to tag.name, tag_comments_path( tag.id ) %><span class="popularity"> x <%= tag.popularity %></span>
                 <% if signed_in? && theme.top_level_comment.user_id == current_user.id  %>
                   <% @tag_attaching = TagAttaching.where(:tag_id => tag.id, :comment_id => theme.top_level_comment.id).first %>
+                  <div class="clear"></div>
+                  <%= link_to 'Detach', tag_attaching_path( @tag_attaching.id ), :confirm => 'Are you sure?', :method => :delete %>
                 <% end %>
             </li>
           <% end %>

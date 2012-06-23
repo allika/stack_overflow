@@ -17,21 +17,23 @@ class TagAttachingsController < ApplicationController
   end
 
   def destroy
-    TagAttaching.find(params[:id]).destroy
+    @tag_attaching = TagAttaching.find(params[:id]).destroy
+    @comment = Comment.find_by_id(@tag_attaching.comment_id)
+    @theme = Theme.find_by_id(@comment.theme_id)
     flash[:notice] = "Tag has been detached"
-     redirect_to comments_path( :theme_id => @comment.theme_id )
+    redirect_to category_themes_path( :category_id => @theme.category_id )
   end
 
   private
 
   def find_tag
-    if params[:tag_attaching][:tag_id]
+    if params[:tag_attaching] && params[:tag_attaching][:tag_id]
       @tag = Tag.find_by_id(params[:tag_attaching][:tag_id])
     end
   end
 
   def find_comment_theme
-    if params[:tag_attaching][:comment_id]
+    if params[:tag_attaching] && params[:tag_attaching][:comment_id]
       @comment = Comment.find_by_id(params[:tag_attaching][:comment_id])
       @theme = Theme.find_by_id(@comment.theme_id)
     end

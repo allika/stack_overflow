@@ -14,7 +14,7 @@ class Tag < ActiveRecord::Base
 
   scope :sorted, order('popularity DESC')
 
-  def change_popularity(value)
+  def update_popularity(value)
     popularity = self.popularity + value
     self.update_attributes!(:popularity => popularity)
   end

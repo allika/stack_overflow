@@ -18,15 +18,19 @@ StackOverflow::Application.routes.draw do
   end
 
   resources :users do
-      resources :tags
-  end
-
-  resources :comments do
     resources :tags
   end
 
+  resources :comments do
+    resources :tags do
+      resources :tag_attachings
+    end
+  end
+
   resources :tags do
-    resources :comments
+    resources :comments do
+      resources :tag_attachings
+    end
   end
 
   root to: 'categories#index'

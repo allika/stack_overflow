@@ -1,10 +1,10 @@
-<% @page_title = "Tagged Comments list" %>
+<% @page_title = "Tag #{@tag.name} comments" %>
 
 <h1>Tag: <%= @tag.name %></h1>
 
 <div class="top-statistics">For this tag <%= pluralize @tag.comments.size, 'comment' %> has been found.</div>
 
-<div class="comment index">
+<div class="comment tagged">
   <% @comments.each do |comment| %>
     <div class="comment summary <%= cycle('odd', 'even') %>">
       <div class="statistics">
@@ -18,7 +18,7 @@
           <% comment.tags.each do |tag| %>
             <li><%= link_to tag.name, tag_comments_path( tag.id ) %><span class="popularity"> x <%= tag.popularity %></span></li>
           <% end %>
-          </ul>
+        </ul>
       </div>
     </div>
   <div class="clear"></div>

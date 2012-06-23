@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     if @theme
       @comments = Comment.sorted.where(:theme_id => @theme.id)
     elsif @tag
-      @comments = Comment.tagged(@tag.id)
+      @comments = @tag.comments
       render 'tagged'
     end
   end

@@ -13,4 +13,9 @@ class Tag < ActiveRecord::Base
   validates :description, :presence => true, :length => {:within => 15..300}
 
   scope :sorted, order('popularity DESC')
+
+  def change_popularity(value)
+    popularity = self.popularity + value
+    self.update_attributes!(:popularity => popularity)
+  end
 end

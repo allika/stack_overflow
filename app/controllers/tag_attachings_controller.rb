@@ -6,8 +6,7 @@ class TagAttachingsController < ApplicationController
   def create
     @tag_attaching = TagAttaching.new(params[:tag_attaching])
     if @tag_attaching.save
-      @current_tag_popularity = @tag.popularity + 1
-      @tag.update_attributes!(:popularity => @current_tag_popularity)
+      @tag.change_popularity(1)
       flash[:notice] = "Tag #{@tag.name} has been attached."
       redirect_to category_themes_path( :category_id => @theme.category_id )
     else
@@ -18,6 +17,7 @@ class TagAttachingsController < ApplicationController
 
   def destroy
     @tag_attaching = TagAttaching.find(params[:id]).destroy
+    @tag.change_popularity(-1)
     flash[:notice] = "Tag has been detached"
     redirect_to category_themes_path( :category_id => @theme.category_id )
   end
@@ -25,9 +25,12 @@ class TagAttachingsController < ApplicationController
   private
 
   def find_tag
-    if params[:tag_attaching] && params[:tag_attaching][:tag_id]
-      @tag = Tag.find_by_id(params[:tag_attaching][:tag_id])
-    end
+    tag_id = if ( params[:tag_attaching] && params[:tag_attaching][:tag_id] )
+                  params[:tag_attaching][:tag_id]
+             elsif params[:id] then
+                  TagAttaching.find_by_id(params[:id]).tag_id
+              end
+      @tag = Tag.find_by_id(tag_id)
   end
 
   def find_comment_theme

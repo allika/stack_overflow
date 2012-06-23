@@ -41,7 +41,7 @@
           <%= link_to "Delete Theme", category_theme_path(@category, theme), :method => :delete, :confirm => "Theme will be deleted.\n Are you sure?" %>
             <% if theme.top_level_comment.user_id == current_user.id %>
               <% if !Tag.all.blank? %>
-                <%= render :partial => 'tag_attachings/form_wrap', :locals => { :comment_id => theme.top_level_comment.id } %>
+                <%= render :partial => 'tag_attachings/new', :locals => { :comment_id => theme.top_level_comment.id } %>
               <% end %>
               <div class="clear"></div>
               <%= link_to "Add a Tag", new_comment_tag_path( :comment_id => theme.top_level_comment.id ), :class => "action new" %>

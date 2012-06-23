@@ -11,13 +11,13 @@
     <div class="tag summary">
 
       <div class="data">
-        <h3><%= link_to tag.name, tag_comments_path( tag.id ) %> <span class="popularity">x <%= tag.popularity %></span></h3>
+        <h3><%= link_to tag.name, tag_comments_path( tag.id ), :class => "ahead-link" %> <span class="popularity">x <%= tag.popularity %></span></h3>
         <p><%= tag.description %></p>
       </div>
 
       <% if signed_in? %>
         <div class="actions">
-          <%= link_to "Delete", tag_path( tag.id ), :method => :delete, :confirm => "Tag will be deleted.\n Are you sure?" %>
+          <%= link_to "Delete", tag_path( tag.id ), :method => :delete, :confirm => "Tag will be deleted.\n Are you sure?", :class => "action delete"  %>
         </div>
       <% end %>
     </div>

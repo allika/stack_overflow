@@ -5,13 +5,13 @@
     </div>
     <div class="top-level navigation">
       <ul>
-        <li><%= link_to "Categories", root_path %></li>
-        <li><%= link_to "Tags", tags_path %></li>
+        <li><%= link_to "Categories", root_path, :class => "top-menu ahead" %></li>
+        <li><%= link_to "Tags", tags_path, :class => "top-menu ahead" %></li>
         <% if signed_in? %>
-          <li><%= link_to "Profile", current_user %></li>
-          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <li><%= link_to "Profile", current_user, :class => "top-menu ahead" %></li>
+          <li><%= link_to "Sign out", signout_path, :method => "delete", :class => "top-menu signout" %></li>
         <% else %>
-          <li><%= link_to "Sign in/Sign up", signin_path %></li>
+          <li><%= link_to "Sign in/Sign up", signin_path, :class => "top-menu ahead" %></li>
         <% end %>
       </ul>
     </div>

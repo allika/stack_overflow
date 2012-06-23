@@ -2,6 +2,6 @@
   <%= render :partial => 'estimations/form', :locals => {:f => f, :comment_id => comment_id, :plus => plus} %>
 
   <div class="form-buttons">
-    <%= f.submit "#{plus ? 'rating +1' : 'rating -1'}" %>
+    <%= f.submit "#{plus ? 'rating +1' : 'rating -1'}", :class => "button create" %>
   </div>
 <% end %>

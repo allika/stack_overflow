@@ -1,12 +1,9 @@
 <% @page_title = "Create Theme" %>
 
 <h1>Category: <%= @category.name %></h1>
-
 <%= link_to "<< All Themes", themes_path(:category_id => @theme.category_id), :class => 'back-link' %>
-
+<h2>Add Theme</h2>
 <div class="theme new">
-  <h2>Add Theme</h2>
-
   <%= form_for setup_theme(@theme), :url => themes_path, :html => {:method => :post} do |f| %>
     <%= render :partial => 'form', :locals => {:f => f} %>
 

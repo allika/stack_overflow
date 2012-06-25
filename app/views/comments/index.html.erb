@@ -21,7 +21,7 @@
         <p><strong><%= comment.body %></strong></p>
         <% if signed_in? %>
           <% if comment.estimations.find_by_user_id(current_user.id).nil? %>
-            <div class="estimation create">
+            <div class="estimation new">
               <%= render :partial => 'estimations/new', :locals => {:comment_id => comment.id, :plus => true} %>
               <%= render :partial => 'estimations/new', :locals => {:comment_id => comment.id, :plus => false} %>
             </div>

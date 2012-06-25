@@ -1,6 +1,5 @@
-<div class="tag_attaching create">
-  <p>Attach a Tag:&nbsp;</p>
-
+<p>Attach a Tag:</p>
+<div class="tag_attaching new">
   <%= form_for :tag_attaching, :url => tag_attachings_path, :html => {:method => :post} do |f| %>
     <%= render :partial => 'tag_attachings/form', :locals => {:f => f, :comment_id => comment_id} %>
 

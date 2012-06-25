@@ -1,10 +1,8 @@
 <% @page_title = "Create Comment" %>
 
 <%= link_to "Theme", comments_path(:comment_id => @comment.id, :theme_id => @comment.theme_id), :class => 'back-link' %>
-
+<h2>Create Comment</h2>
 <div class="comment new">
-  <h2>Create Comment</h2>
-
   <%= form_for :comment, :url => comments_path, :html => {:method => :post} do |f| %>
     <%= render :partial => 'form', :locals => {:f => f} %>
 

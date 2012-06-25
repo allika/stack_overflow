@@ -22,8 +22,9 @@
         <% if signed_in? %>
           <% if comment.estimations.find_by_user_id(current_user.id).nil? %>
             <div class="estimation new">
-              <%= render :partial => 'estimations/new', :locals => {:comment_id => comment.id, :plus => true} %>
-              <%= render :partial => 'estimations/new', :locals => {:comment_id => comment.id, :plus => false} %>
+              <% [true, false].each do |approval| %>
+                 <%= render :partial => 'estimations/new', :locals => {:comment_id => comment.id, :plus => approval } %>
+              <% end %>
             </div>
           <% else %>
             <p class="estimation-report">Your vote is <span><%= current_user.estimations.find_by_comment_id(comment.id).plus ? "+1" : "-1" %></span></p>

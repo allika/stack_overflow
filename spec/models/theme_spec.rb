@@ -14,8 +14,10 @@ require 'spec_helper'
 
 describe Theme do
 
-  before { @theme = Theme.new(:category_id => 1, :user_id => 1, :name => "Theme name", :created_at => "2012-06-17 16:19:04",
-                              :updated_at => "2012-06-17 16:19:04") }
+  before do
+    @theme = Theme.new(:category_id => 1, :user_id => 1, :name => "Theme name",
+                       :created_at => "2012-06-17 16:19:04", :updated_at => "2012-06-17 16:19:04")
+  end
 
   subject { @theme }
 

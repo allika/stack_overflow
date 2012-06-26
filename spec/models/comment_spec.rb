@@ -16,8 +16,10 @@ require 'spec_helper'
 
 describe Comment do
 
-  before { @comment = Comment.new(:theme_id => 1, :user_id => 1, :body => "Theme name"*200, :rating => 50, :top_level => 1,
-                                  :created_at => "2012-06-17 16:19:04", :updated_at => "2012-06-17 16:19:04") }
+  before do
+    @comment = Comment.new(:theme_id => 1, :user_id => 1, :body => "Theme name"*200, :rating => 50, :top_level => 1,
+                           :created_at => "2012-06-17 16:19:04", :updated_at => "2012-06-17 16:19:04")
+  end
 
   subject { @comment }
 

@@ -14,8 +14,10 @@ require 'spec_helper'
 
 describe TagAttaching do
 
-  before { @tag_attaching = TagAttaching.new(:tag_id => 5, :comment_id => 9, :user_id => 12,
-                                             :created_at => "2012-06-17 16:19:04", :updated_at => "2012-06-17 16:19:04") }
+  before do
+    @tag_attaching = TagAttaching.new(:tag_id => 5, :comment_id => 9, :user_id => 12,
+                                      :created_at => "2012-06-17 16:19:04", :updated_at => "2012-06-17 16:19:04")
+  end
 
   subject { @tag_attaching }
 

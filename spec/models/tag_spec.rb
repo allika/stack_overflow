@@ -15,8 +15,10 @@ require 'spec_helper'
 
 describe Tag do
 
-  before { @tag = Tag.new(:user_id => 5, :name => "tag-name#.", :description => "Tag's description'", :popularity => 15,
-                          :created_at => "2012-06-17 16:19:04", :updated_at => "2012-06-17 16:19:04") }
+  before do
+    @tag = Tag.new(:user_id => 5, :name => "tag-name#.", :description => "Tag's description'", :popularity => 15,
+                   :created_at => "2012-06-17 16:19:04", :updated_at => "2012-06-17 16:19:04")
+  end
 
   subject { @tag }
 

@@ -17,9 +17,11 @@ require 'spec_helper'
 
 describe User do
 
-  before { @user = User.new(:first_name => "F Name", :last_name => "L Name", :username => "example_user", :email => "user@example.com",
-                            :password => "password", :password_confirmation => "password",
-                            :created_at => "2012-06-17 16:19:04", :updated_at => "2012-06-17 16:19:04") }
+  before do
+    @user = User.new(:first_name => "F Name", :last_name => "L Name", :username => "example_user", :email => "user@example.com",
+                     :password => "password", :password_confirmation => "password",
+                     :created_at => "2012-06-17 16:19:04", :updated_at => "2012-06-17 16:19:04")
+  end
 
   subject { @user }
 
@@ -27,10 +29,11 @@ describe User do
   it { should respond_to(:last_name) }
   it { should respond_to(:username) }
   it { should respond_to(:email) }
+  it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
+  it { should respond_to(:password_confirmation) }
   it { should respond_to(:created_at) }
   it { should respond_to(:updated_at) }
-  it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
 

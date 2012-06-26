@@ -62,6 +62,15 @@ describe Tag do
     it { should be_valid }
   end
 
+  describe "when tag name is not unique" do
+    before do
+      tag_with_same_name = @tag.dup
+      tag_with_same_name.save
+    end
+
+    it { should_not be_valid }
+  end
+
   describe "when description is not present" do
     before { @tag.description = "" }
     it { should_not be_valid }

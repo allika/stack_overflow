@@ -35,9 +35,27 @@ describe Theme do
     it { should_not be_valid }
   end
 
+  describe "when theme name is not unique inside the same category" do
+    before do
+      theme_with_same_name = @theme.dup
+      theme_with_same_name.save
+    end
+
+    it { should_not be_valid }
+  end
+
+  describe "when theme name is not unique inside different categories" do
+    before do
+      theme_with_same_name = @theme.dup
+      @theme.category_id = 2
+      theme_with_same_name.save
+    end
+
+    it { should be_valid }
+  end
+
   describe "when name is ok" do
     before { @theme.name = "Theme name" }
     it { should be_valid }
   end
-
 end

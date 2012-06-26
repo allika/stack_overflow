@@ -1,0 +1,13 @@
+<% @page_title = "Tag #{@tag.name}" %>
+
+<div class="tag show">
+
+  <%= link_to "Tags", tags_path, :class => "back-link" %>
+
+  <h1>Tag <%= @tag.name %></h1>
+
+  <h2><%= link_to "Created by", user_path( @tag.user_id ), :class => "ahead-link" %></h2>
+
+  <h3><%= link_to "Usage", tag_comments_path( @tag.id ), :class => "ahead-link" %></h3>
+
+</div>

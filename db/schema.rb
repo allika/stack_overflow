@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20120620133900) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
+
   add_index "categories", ["name"], :name => "index_categories_on_name"
 
   create_table "comments", :force => true do |t|
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120620133900) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
+
   add_index "comments", ["theme_id", "user_id", "rating"], :name => "index_comments_on_theme_id_and_user_id_and_rating"
 
   create_table "estimations", :force => true do |t|
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120620133900) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
+
   add_index "estimations", ["comment_id", "user_id"], :name => "index_estimations_on_comment_id_and_user_id"
 
   create_table "tag_attachings", :force => true do |t|
@@ -47,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20120620133900) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
   add_index "tag_attachings", ["tag_id", "comment_id", "user_id"], :name => "index_tag_attachings_on_tag_id_and_comment_id_and_user_id"
 
   create_table "tags", :force => true do |t|
@@ -57,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20120620133900) do
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
   end
+
   add_index "tags", ["user_id", "name", "popularity"], :name => "index_tags_on_user_id_and_name_and_popularity"
 
   create_table "themes", :force => true do |t|
@@ -66,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20120620133900) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
   end
+
   add_index "themes", ["category_id", "user_id", "name"], :name => "index_themes_on_category_id_and_user_id_and_name"
 
   create_table "users", :force => true do |t|
@@ -78,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20120620133900) do
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
   end
+
   add_index "users", ["username", "email", "remember_token"], :name => "index_users_on_username_and_email_and_remember_token"
 
 end

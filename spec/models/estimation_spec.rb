@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: estimations
+#
+#  id         :integer(4)      not null, primary key
+#  comment_id :integer(4)
+#  user_id    :integer(4)
+#  plus       :boolean(1)      default(FALSE)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+
 require 'spec_helper'
 
 describe Estimation do

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: tag_attachings
+#
+#  id         :integer(4)      not null, primary key
+#  tag_id     :integer(4)
+#  comment_id :integer(4)
+#  user_id    :integer(4)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+
 require 'spec_helper'
 
 describe TagAttaching do

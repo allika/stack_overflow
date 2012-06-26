@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: themes
+#
+#  id          :integer(4)      not null, primary key
+#  category_id :integer(4)
+#  user_id     :integer(4)
+#  name        :string(200)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#
+
 class Theme < ActiveRecord::Base
   attr_accessible :category_id, :user_id, :name, :created_at, :updated_at, :comments_attributes
 

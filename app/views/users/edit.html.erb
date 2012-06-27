@@ -1,0 +1,14 @@
+<% @page_title = 'Edit User' %>
+
+<h1>Update your profile</h1>
+<div class="user edit">
+  <%= form_for @user, :url => user_path(@user.id), :html => {:method => :put} do |f| %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+
+    <div class="form-buttons">
+      <%= f.submit "Save Changes", :class => "button save" %>
+    </div>
+  <% end %>
+  <%= gravatar_for @user %>
+  <a href="http://gravatar.com/emails">change</a>
+</div>
